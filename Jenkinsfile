@@ -4,14 +4,14 @@ pipeline {
     stages {
         stage('Checkout Code') {
             steps {
-                git branch: 'main', 
+                git branch: 'main',
                 url: 'https://github.com/RamRatan07/applebite-php-app.git'
             }
         }
 
         stage('Build Docker Image') {
             steps {
-                sh 'docker build -t applebite-php-app .'
+                sh 'docker buildx build -t applebite-php-app .'
             }
         }
 
