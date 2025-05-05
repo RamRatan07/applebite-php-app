@@ -17,7 +17,7 @@ pipeline {
 
         stage('Run Container') {
             steps {
-                sh 'docker run -d -p 80:80 --name php-app applebite-php-app'
+                sh 'docker run -d -p 81:80 --name php-app applebite-php-app'
             }
         }
     }
