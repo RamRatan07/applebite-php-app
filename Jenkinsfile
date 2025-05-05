@@ -1,0 +1,30 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+                git branch: 'master', url: 'https://github.com/your-username/applebite-php-app.git'
+            }
+        }
+
+        stage('Build Docker Image') {
+            steps {
+                sh 'docker build -t applebite-php-app .'
+            }
+        }
+
+        stage('Run Container') {
+            steps {
+                sh 'docker run -d -p 80:80 --name php-app applebite-php-app'
+            }
+        }
+    }
+
+    post {
+        failure {
+            sh 'docker stop php-app || true'
+            sh 'docker rm php-app || true'
+        }
+    }
+}
