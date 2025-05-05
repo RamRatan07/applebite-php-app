@@ -11,7 +11,7 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                sh 'docker buildx build -t applebite-php-app .'
+                sh 'docker build -t applebite-php-app .'
             }
         }
 
