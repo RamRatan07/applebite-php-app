@@ -1,10 +1,10 @@
 pipeline {
     agent any
 
-    stages {
+    stages 
         stage('Checkout') {
             steps {
-                git branch: 'master', url: 'https://github.com/your-username/applebite-php-app.git'
+                git branch: 'master', url: 'https://github.com/RamRatan07/applebite-php-app.git'
             }
         }
 
